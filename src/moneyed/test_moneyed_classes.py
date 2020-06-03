@@ -175,8 +175,8 @@ class TestMoney:
         assert x < self.one_million_bucks
 
     def test_lt_mistyped(self):
-        x = 1.0
         with pytest.raises(MoneyComparisonError):
+            x = 1.0
             assert x < self.one_million_bucks
 
     def test_gt(self):
@@ -184,6 +184,6 @@ class TestMoney:
         assert self.one_million_bucks > x
 
     def test_gt_mistyped(self):
-        x = 1.0
         with pytest.raises(MoneyComparisonError):
+            x = 1.0
             assert self.one_million_bucks > x

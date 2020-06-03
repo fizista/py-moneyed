@@ -15,7 +15,7 @@ class CurrencyFormatter(object):
     def add_sign_definition(self, locale, currency, prefix='', suffix=''):
         locale = locale.upper()
         currency_code = currency.code.upper()
-        if not locale in self.sign_definitions:
+        if locale not in self.sign_definitions:
             self.sign_definitions[locale] = {}
         self.sign_definitions[locale][currency_code] = (prefix, suffix)
 
@@ -90,7 +90,7 @@ class CurrencyFormatter(object):
             build(suffix)
 
         # Decimals
-        for i in range(decimal_places):
+        for _ in range(decimal_places):
             build(next() if digits else '0')
 
         # Decimal points
